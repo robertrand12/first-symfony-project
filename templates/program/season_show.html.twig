@@ -10,7 +10,7 @@
           <p>Liste des épisodes</p>
           <ul>
             {% for episode in season.episodes %}
-            <li>{{ episode.number }} / {{ episode.title }}</li><br/>
+            <a href='{{ path("program_episode_show", { program: program.id, season: season.id, episode:episode.id }) }}'><li>{{ episode.number }} / {{ episode.title }}</li></a><br/>
             {% endfor %}
           </ul>
       </div>
