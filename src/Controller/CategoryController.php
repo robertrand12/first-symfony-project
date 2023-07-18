@@ -33,7 +33,7 @@ class CategoryController extends AbstractController
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
         // Was the form submitted ?
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
           $categoryRepository->save($category, true);
           return $this->redirectToRoute('category_index');
             // Deal with the submitted data
