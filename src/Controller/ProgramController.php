@@ -37,12 +37,13 @@ class ProgramController extends AbstractController
         // Was the form submitted ?
         if ($form->isSubmitted() && $form->isValid()) {
           $programRepository->save($program, true);
+          $this->addFlash('success', 'La série a bien été ajoutée.');
           return $this->redirectToRoute('program_index');
             // Deal with the submitted data
             // For example : persiste & flush the entity
             // And redirect to a route that display the result
-        }
-
+        } 
+        
         // Render the form
 
         return $this->render('program/new.html.twig', [
